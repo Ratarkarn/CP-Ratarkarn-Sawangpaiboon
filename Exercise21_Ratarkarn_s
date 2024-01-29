@@ -1,0 +1,33 @@
+from tkinter import *
+
+def leftClickButton(event):
+    x = float(textBoxWeight.get())
+    y = float(textBoxHight.get())/100
+    z = x/(y**2)
+    bmiCalculat(z)
+def bmiCalculat (bmi):
+    if bmi >= 30 :
+        labeResult.config(text="You BMI : %.2f อ้วนมาก" %bmi)
+    elif 29.9 >= bmi >= 25.0 :
+        labeResult.config(text="You BMI : %.2f อ้วน" %bmi)
+    elif 24.9 >= bmi >= 23.0 :
+        labeResult.config(text="You BMI : %.2f น้ำหนักเกิน" %bmi)
+    elif 22.9 >= bmi >= 18.6 :
+        labeResult.config(text="You BMI : %.2f น้ำหนักปกติ" %bmi)
+    elif 18.5 >= bmi >= 1 :
+        labeResult.config(text="You BMI : %.2f ผอมเกินไป" %bmi)
+
+main = Tk()
+labeHight = Label(main,text='ส่วนสูง (cm.)').grid(row=0,column=0)
+textBoxHight = Entry(main)
+textBoxHight.grid(row=0,column=1)
+labeWeight = Label(main,text='น้ำหนัก (Kg.)').grid(row=1,column=0)
+textBoxWeight = Entry(main)
+textBoxWeight.grid(row=1,column=1)
+calculateButton = Button(main,text="คำนวน")
+calculateButton.grid(row=2,column=0)
+calculateButton.bind('<Button-1>',leftClickButton)
+labeResult = Label(main)
+labeResult.grid(row=2,column=1)
+main.mainloop()
+
