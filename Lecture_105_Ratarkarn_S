@@ -1,0 +1,27 @@
+class Vehicle :
+    licenseCode = ""
+    serialCode = ""
+    face = ""
+    def turnOnAirConditioner(self):
+        print("Turn On : Air")
+
+class Car(Vehicle):
+    def sayHello(self) :
+        print("Hello World")
+
+class Pickup(Vehicle):
+    def funtionPickup(self):
+        print("Can do it truck ")
+
+class Van(Vehicle):
+    def functionVan(self):
+        print("Have 7 sit People")
+
+car1 = Car()
+car1.turnOnAirConditioner()
+
+pickup1 = Pickup()
+pickup1.turnOnAirConditioner()
+
+van1 = Van()
+van1.turnOnAirConditioner()
