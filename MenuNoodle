@@ -1,0 +1,91 @@
+def oderMenu():
+    oder = 1
+    while True :
+        if oder > 1 :
+            cu = input("ท่านต้องการสั่งเพิ่ม y/n : ")
+            if cu != "y" :
+                break
+        x = []
+        print(f'Oder {oder}')
+        print(*noodelList, sep= ",")
+        cu = input("เลือกเส้นที่ต้องการ : ")
+        if cu not in noodelList :
+            break
+        else:
+            x.append(cu)
+
+        print(f'Oder {oder}')
+        print(*meatList, sep= ",")
+        cu = input("เลือกเนื้อที่ต้องการ : ")
+        if cu not in meatList :
+            break
+        else:
+            x.append(cu)
+        
+        print(f'Oder {oder}')
+        print(*sauceList, sep= ",")
+        cu = input("เลือกซอสที่ต้องการ : ")
+        if cu not in sauceList :
+            break
+        else:
+            x.append(cu)
+        
+        print(f'Oder {oder}')
+        cu = input("น้ำ/แห้ง : ")
+        if cu not in typeList :
+            break
+        else:
+            x.append(cu)
+        
+        print(f'Oder {oder}')
+        cu = input("ธรรมดา/พิเศษ : ")
+        if cu not in sizeList :
+            break
+        else:
+            x.append(cu)
+            x.append(sizeList[cu])
+
+        oderList.append(x)
+        oder += 1
+
+
+def readOder():
+    count = 1
+    total = 0
+    for i in oderList :
+        print(f"Oder{count} :", end= " " )
+        print(*i, end=" ")
+        print("บาท")
+        count += 1 
+        total += i[-1]
+    print(f"รวมเป็นเงินทั้งสิ้น {total} บาท")
+
+
+oderList = []
+noodelList = ["เส้นหมี่","เส้นเล็ก","เส้นใหญ่","บะหมี่","เกาเหลา"]
+meatList = ["หมู","เนื้อ","เป็ด","ไก่"]
+sauceList= ["น้ำตก","ยำ","เย็นตาโฟ","ตุ๋น"]
+typeList = ["น้ำ","แห้ง"]
+sizeList = {"ธรรมดา":50,"พิเศษ":60}
+print("=======  Welcome  =======")
+print("== ร้านProjectborntoDev ==")
+print("======= เมนูก๋วยเตี๋ยว =======")
+print(*noodelList, sep= ",")
+print(*meatList, sep= ",")
+print(*sauceList, sep= ",")
+print(*typeList, sep= ",")
+print(*sizeList.keys(), sep= ",")
+
+cu = input("ท่านต้องการสั่งอาหาร y/n : ")
+if cu != "y" :
+    pass
+else:
+    oderMenu()
+
+if len(oderList) >= 1 :
+    print("==== รายการที่สั่ง ====")
+    readOder()
+    print("ขอบคุณที่อุดหนุนร้านProjectborntoDev")
+else:
+    print("ร้านProjectborntoDev")
+    print("ขอบคุณที่ใช้บริการ")
